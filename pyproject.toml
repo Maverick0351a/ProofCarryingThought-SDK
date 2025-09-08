@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "proofcarryingthought-sdk"
+version = "0.1.0"
+description = "Minimal Proof-Carrying Thought (PCT) SDK: canonical bytes, Merkle, CAS, optional Ed25519 signing, policy gates, and chain-of-custody."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [{ name = "PCT", email = "pct@example.com" }]
+keywords = ["pct", "merkle", "cas", "ed25519", "security", "verification"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Maverick0351a/ProofCarryingThought-SDK"
+Repository = "https://github.com/Maverick0351a/ProofCarryingThought-SDK"
+
+[project.optional-dependencies]
+crypto = [
+  "PyNaCl>=1.5",
+]
+dcbor = [
+  "cbor2>=5.6",
+]
+dev = [
+  "pytest>=7",
+  "ruff>=0.5",
+]
+
+[tool.hatch.build]
+include = ["src/pct_sdk", "README.md", "LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pct_sdk"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/pct_sdk", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
