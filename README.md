@@ -1,8 +1,24 @@
 # ProofCarryingThought-SDK
 
+[![CI](https://github.com/Maverick0351a/ProofCarryingThought-SDK/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Maverick0351a/ProofCarryingThought-SDK/actions/workflows/ci.yml)
+[![PyPI version](https://img.shields.io/pypi/v/proofcarryingthought-sdk.svg)](https://pypi.org/project/proofcarryingthought-sdk/)
+[![Python versions](https://img.shields.io/pypi/pyversions/proofcarryingthought-sdk.svg)](https://pypi.org/project/proofcarryingthought-sdk/)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 Minimal Proof-Carrying Thought (PCT) SDK: canonical bytes, Merkle, local CAS, optional Ed25519 signing, policy gates, and chain-of-custody.
 
 ## Install
+
+- From PyPI:
+
+	pip install proofcarryingthought-sdk
+
+- Optional extras (combine as needed):
+
+	pip install "proofcarryingthought-sdk[crypto]"   # PyNaCl for Ed25519
+	pip install "proofcarryingthought-sdk[dcbor]"    # cbor2 for canonical CBOR
+	
+- From source (editable):
 
 - Base:
 	- pip install -e .
@@ -40,3 +56,7 @@ obj = cas.get(hid)
 ## Tests
 
 pytest
+
+## Changelog
+
+See CHANGELOG.md for release notes.
